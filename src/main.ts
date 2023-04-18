@@ -1,5 +1,5 @@
-import { ValidationPipe } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
+import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import * as cookieParser from 'cookie-parser';
@@ -17,6 +17,10 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
+  // para no mostrar el atributo "contraseña" en las busquedas de usuarios
+  const reflector = app.get(Reflector);
+  app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
 
   // app.useWebSocketAdapter(new AlgunAdapter(app));
 
