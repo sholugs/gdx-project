@@ -3,6 +3,10 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
+import { DataModule } from './data/data.module';
+import * as dotenv from 'dotenv';
+
+// dotenv.config();
 
 @Module({
   imports: [
@@ -19,6 +23,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     UserModule,
     AuthModule,
+    DataModule,
   ],
   providers: [],
 })
