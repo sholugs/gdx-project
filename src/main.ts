@@ -5,6 +5,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as cookieParser from 'cookie-parser';
 
 import { AppModule } from './app.module';
+import { CORS } from './constants/cors';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -23,6 +24,8 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
 
   // app.useWebSocketAdapter(new AlgunAdapter(app));
+
+  app.enableCors(CORS);
 
   const options = new DocumentBuilder()
     .setTitle('gdx-project')
