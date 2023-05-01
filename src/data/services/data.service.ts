@@ -7,7 +7,7 @@ export class DataService {
     async function getData() {
       const sheet = await sheets();
       const res = await sheet.spreadsheets.values.get({
-        spreadsheetId: '1v3Aj6p47lshEpuAhl1qJJ69SxSYmDWsU0Fk0CB-O0tM',
+        spreadsheetId: '1kXZvRQWZuPuVvJzuKqpkzxa1iFNqYxGRM1RHTyWczmk',
         range: 'A:D',
       });
 
